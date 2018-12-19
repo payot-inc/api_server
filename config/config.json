@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "test2",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "Asia/Seoul"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "Asia/Seoul"
+  },
+  "production": {
+    "username": "payot",
+    "password": "vpdldhxl2017",
+    "database": "coin_management",
+    "host": "coin-manager.cjdio7be0ee3.ap-northeast-2.rds.amazonaws.com",
+    "dialect": "mysql",
+    "timezone": "Asia/Seoul"
+  }
+}
