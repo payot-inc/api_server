@@ -56,7 +56,7 @@ router.get('/company/:id', [
                 between: [startDate, endDate]
             }
         },
-        attributes: { exclude: ['id', 'companyId', 'franchiseId'] }
+        attributes: { exclude: ['companyId', 'franchiseId'] }
     }).then(result => {
         if (!result) res.status(204).json({});
         else res.json(result);
@@ -90,6 +90,19 @@ router.get('/franchise/:id', [
         else res.json(result);
     }).catch(err => {
         res.status(500).json({ error: err });
+    });
+});
+
+router.put('/:id', (req, res) => {
+    maintenance.update(req.body, {
+        where: {
+            id: req.params.id,
+        },
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
 });
 

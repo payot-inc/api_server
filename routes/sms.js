@@ -18,7 +18,6 @@ router.post('/', (req, res) => {
     }).then(data => {
       res.json(data);
     }).catch(err => {
-      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -31,13 +30,11 @@ router.get('/list/franchise/:id', (req, res) => {
       res.json(data);
     })
     .catch((err) => {
-      console.log(err);
       res.status(400).json(err);
     });
 });
 
 function writeLog(companyId, franchiseId, message, count, from, sender, loss) {
-  console.log(message);
   return sms_list.create({
     message,
     from,

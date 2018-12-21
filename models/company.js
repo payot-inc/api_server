@@ -62,6 +62,8 @@ module.exports = (sequelize, DataTypes) => {
     company.hasMany(models.payments)
     company.hasMany(models.sms)
     company.hasMany(models.claim)
+    company.hasMany(models.append_point)
+    
   };
   return company;
 };

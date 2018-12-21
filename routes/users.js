@@ -67,14 +67,17 @@ router.post('/', [
   });
 });
 
-router.post('/point', (req, res) => {
-  const poinChangeUsers = req.body.users;
-
-  if (poinChangeUsers instanceof Array) {
-
-  } else {
-    
-  }
+// 사용자 삭제
+router.delete('/:id', [
+  check('id').isInt()
+], (req, res) => {
+  user.destroy({ 
+    where: {
+      id: req.params.id,
+    },
+  }).then(data => {
+    res.json(data);
+  });
 });
 
 router.get('/:phone/company/:id', [
@@ -90,21 +93,19 @@ router.get('/:phone/company/:id', [
   }).catch(err => {
     res.json(err);
   });
+});
 
-  // user.findOne({
-  //   where: {
-  //     companyId: req.params.id,
-  //     phone: req.params.phone,
-  //   },
-  // }).then(data => {
-  //   if (!_.isEmpty(data)) res.json(data);
-
-  //   return user.create({ phone: req.params.phone, companyId: req.params.id });
-  // }).then((created) => {
-  //   res.json(created);
-  // }).catch(err => {
-  //   res.status(500).json({ error: err });
-  // });
+// 회원삭제
+router.delete('/:id', (req, res) => {
+  users.destroy({
+    where: {
+      id: req.params.id,
+    }
+  }).then(data => {
+    res.json(data);
+  }).catch(err => {
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;
